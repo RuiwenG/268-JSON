@@ -1,6 +1,6 @@
-# hw5
+# JSON and Serialization
 
-A new Flutter project.
+This repo aims to help people understand how does serialization work in Flutter, and how to parse JSON files in the background.
 
 ## Getting Started
 
