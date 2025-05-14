@@ -20,6 +20,6 @@ class Person {
 
   @override
   String toString() {
-    return 'Person{name: $name, age: $age, hobbies: $hobbies}';
+    return '$name, $age, $hobbies ';
   }
 }
