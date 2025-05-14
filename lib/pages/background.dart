@@ -3,11 +3,13 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 // Replace with your OpenWeatherMap API key and desired city.
-const String apiKey = ''; // <--- Replace with your actual API key
-const String city = 'Beijing'; // <--- Change this to your desired city
+final String apiKey =
+    dotenv.env['API_KEY'] ?? ''; // <--- Replace with your actual API key
+const String city = 'Rome'; // <--- Change this to your desired city
 
 // Function to fetch weather data from OpenWeatherMap API
 Future<WeatherData> fetchWeatherData(http.Client client) async {
