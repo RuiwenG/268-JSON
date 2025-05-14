@@ -6,7 +6,7 @@ import 'package:hw5/pages/background.dart';
 import 'package:hw5/pages/manual.dart'; // For compute
 
 void main() async {
-  await dotenv.load(fileName: ".env");
+  await dotenv.load(fileName: '.env');
   runApp(const MyApp());
 }
 
