@@ -4,13 +4,16 @@ This repo aims to help people understand how does serialization work in Flutter,
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Setting up json_serializable in a project
 
-A few resources to get you started if this is your first Flutter project:
+To include json_serializable in your project, you need one regular dependency, and two dev dependencies. In short, dev dependencies are dependencies that are not included in our app source code—they are only used in the development environment.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+To add the dependencies, run flutter pub add:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<code> flutter pub add json_annotation dev:build_runner dev:json_serializable </code>
+
+Run flutter pub get inside your project root folder (or click Packages get in your editor) to make these new dependencies available in your project.
+
+### Parsing JSON in the background
+
+<code> flutter pub add http </code>
