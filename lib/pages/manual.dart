@@ -125,7 +125,7 @@ class _ManualSerializationPageState extends State<ManualSerializationPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              Text(
+              SelectableText(
                 _jsonString,
                 style: const TextStyle(fontSize: 18, color: Colors.green),
               ),
