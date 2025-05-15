@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hw5/pages/background.dart';
+import 'package:hw5/pages/code_generate_page.dart';
 import 'package:hw5/pages/manual.dart'; // For compute
 
 void main() async {
@@ -28,6 +29,8 @@ class MyApp extends StatelessWidget {
         '/manual':
             (context) =>
                 const ManualSerializationPage(), // Manual serialization page
+        '/codeGenerate':
+            (context) => const CodeGeneratePage(), // Code generated page
         '/background':
             (context) =>
                 const BackgroundParsingPage(), // Background parsing page
@@ -56,6 +59,19 @@ class MyHomePage extends StatelessWidget {
               },
               child: const Text(
                 'Manual Serialization',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(
+                  context,
+                  '/codeGenerate',
+                ); // Navigate to manual serialization
+              },
+              child: const Text(
+                'Code Generated',
                 style: TextStyle(fontSize: 20),
               ),
             ),
