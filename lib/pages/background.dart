@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 // Replace with your OpenWeatherMap API key and desired city.
 final String apiKey =
     dotenv.env['API_KEY'] ?? ''; // <--- Replace with your actual API key
-const String city = 'Rome'; // <--- Change this to your desired city
+String city = 'Rome'; // <--- Default city
 
 // Function to fetch weather data from OpenWeatherMap API
 Future<WeatherData> fetchWeatherData(http.Client client) async {
@@ -76,6 +76,7 @@ class BackgroundParsingPage extends StatefulWidget {
 
 class _BackgroundParsingPageState extends State<BackgroundParsingPage> {
   late Future<WeatherData> futureWeatherData;
+  final TextEditingController _cityController = TextEditingController();
 
   @override
   void initState() {
@@ -83,27 +84,66 @@ class _BackgroundParsingPageState extends State<BackgroundParsingPage> {
     futureWeatherData = fetchWeatherData(http.Client());
   }
 
+  // Function to update weather data
+  Future<void> _updateWeatherData(String newCity) async {
+    setState(() {
+      city = newCity;
+      futureWeatherData = fetchWeatherData(http.Client());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Weather Data")), // Changed title
+      appBar: AppBar(title: const Text("Weather Data")),
       body: Center(
-        child: FutureBuilder<WeatherData>(
-          future: futureWeatherData,
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return Center(
-                child: Text('An error has occurred!\n${snapshot.error}'),
-              ); // Display error
-            } else if (snapshot.hasData) {
-              return WeatherDisplay(weatherData: snapshot.data!);
-            } else {
-              return const Center(child: CircularProgressIndicator());
-            }
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: TextField(
+                controller: _cityController,
+                decoration: InputDecoration(
+                  labelText: 'Enter a city name',
+                  suffixIcon: IconButton(
+                    icon: const Icon(Icons.search),
+                    onPressed: () {
+                      _updateWeatherData(_cityController.text);
+                    },
+                  ),
+                ),
+                onSubmitted: (value) {
+                  _updateWeatherData(value);
+                },
+              ),
+            ),
+            const SizedBox(height: 30),
+            FutureBuilder<WeatherData>(
+              future: futureWeatherData,
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text('An error has occurred!\n${snapshot.error}'),
+                  ); // Display error
+                } else if (snapshot.hasData) {
+                  return WeatherDisplay(weatherData: snapshot.data!);
+                } else {
+                  return const Center(child: CircularProgressIndicator());
+                }
+              },
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  // Dispose the controller
+  @override
+  void dispose() {
+    _cityController.dispose();
+    super.dispose();
   }
 }
 

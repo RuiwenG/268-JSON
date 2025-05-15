@@ -54,7 +54,10 @@ class MyHomePage extends StatelessWidget {
                   '/manual',
                 ); // Navigate to manual serialization
               },
-              child: const Text('Manual Serialization'),
+              child: const Text(
+                'Manual Serialization',
+                style: TextStyle(fontSize: 20),
+              ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
@@ -64,7 +67,10 @@ class MyHomePage extends StatelessWidget {
                   '/background',
                 ); // Navigate to background parsing
               },
-              child: const Text('Background Parsing'),
+              child: const Text(
+                'Background Parsing',
+                style: TextStyle(fontSize: 20),
+              ),
             ),
           ],
         ),

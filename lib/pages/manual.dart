@@ -104,44 +104,50 @@ class _ManualSerializationPageState extends State<ManualSerializationPage> {
             children: <Widget>[
               const Text(
                 'Person List:',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
               // Display the list of people
-              Text(_people.toString(), style: const TextStyle(fontSize: 16)),
+              Text(_people.toString(), style: const TextStyle(fontSize: 18)),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _serializePeople,
-                child: const Text('Serialize to JSON'),
+                child: const Text(
+                  'Serialize to JSON',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
               const SizedBox(height: 10),
               // Display the JSON string
               Text(
                 'Serialized JSON:',
                 style: const TextStyle(
-                  fontSize: 18,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 _jsonString,
-                style: const TextStyle(fontSize: 16, color: Colors.green),
+                style: const TextStyle(fontSize: 18, color: Colors.green),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: _deserializePeople,
-                child: const Text('Deserialize from JSON'),
+                child: const Text(
+                  'Deserialize from JSON',
+                  style: TextStyle(fontSize: 18),
+                ),
               ),
               const SizedBox(height: 10),
               Text(
                 'Deserialized List:',
                 style: const TextStyle(
-                  fontSize: 18,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
                 _deserializedString,
-                style: const TextStyle(fontSize: 16, color: Colors.blue),
+                style: const TextStyle(fontSize: 18, color: Colors.blue),
               ),
             ],
           ),
