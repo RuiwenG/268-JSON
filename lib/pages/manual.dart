@@ -13,10 +13,7 @@ class ManualSerializationPage extends StatefulWidget {
 
 class _ManualSerializationPageState extends State<ManualSerializationPage> {
   // Use a List to hold the Person objects
-  final List<Person> _people = [
-    Person("Alice", 25, ["Reading", "Gaming"]),
-    Person("Bob", 30, ["Cooking", "Hiking"]),
-  ];
+  final List<Person> _people = [Person("Alice", 25), Person("Bob", 30)];
   String _jsonString = ""; // To display the serialized JSON
   String _deserializedString = "";
 
