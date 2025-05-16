@@ -16,4 +16,11 @@ Run flutter pub get inside your project root folder (or click Packages get in yo
 
 ### Parsing JSON in the background
 
-<code> flutter pub add http </code>
+<code> flutter pub add http </code></p>
+For this repository, we are using the free API call from <https://openweathermap.org>. To utilize this function, create <code>.env</code> file with your API key under the root folder. </p>
+The format is <code>API_KEY=...</code>
+
+## Questions?
+JSON documentation: <https://docs.flutter.dev/data-and-backend/serialization/json>. </p>
+Slides (Login with SCU account): <https://docs.google.com/presentation/d/1x8XDomWpkKjyc07wazI-BauoF6yq8AkDbyeSSi4Zwwk/edit?usp=sharing> 
+
